@@ -1,7 +1,10 @@
 module.exports = {
   Query: {
-    pokemon: async (_source, { id }, { dataSources }) => {
-      return dataSources.pokemonAPI.getPokemon(id)
-    },
-  },
+    videoSearch: async (_source, { query }, { dataSources }) => {
+      const entries = await dataSources.tmdbAPI.search(query);
+      return {
+        entries
+      };
+    }
+  }
 }
