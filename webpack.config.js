@@ -1,4 +1,5 @@
 const path = require('path')
+const { EnvironmentPlugin } = require("webpack");
 
 module.exports = {
   target: 'webworker',
@@ -11,4 +12,9 @@ module.exports = {
   optimization: {
     usedExports: true,
   },
+  plugins: [
+    new EnvironmentPlugin({
+      THE_MOVIE_DB_API_KEY: 'unknown'
+    })
+  ]
 }
