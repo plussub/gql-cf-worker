@@ -3,11 +3,13 @@ const { graphqlCloudflare } = require('apollo-server-cloudflare/dist/cloudflareA
 
 const KVCache = require('../kv-cache')
 const TmdbAPI = require('../datasources/tmdbApi')
+const OpensubtitleAPI = require('../datasources/opensubtitleApi')
 const resolvers = require('../resolvers')
 const typeDefs = require('../schema')
 
 const dataSources = () => ({
-    tmdbAPI: new TmdbAPI()
+    tmdbAPI: new TmdbAPI(),
+    openSubtitleAPI: new OpensubtitleAPI()
 })
 
 const kvCache = { cache: new KVCache() }
