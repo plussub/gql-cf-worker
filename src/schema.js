@@ -29,7 +29,9 @@ module.exports = gql`
     vote_count: Int
     video: Boolean
     "e.g: 4.19"
-    vote_average: Float
+    vote_average: Float,
+    "e.g. tv or movie"
+    media_type: String
   }
 
   type SubtitleSearchResult {
