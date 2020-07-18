@@ -16,10 +16,10 @@ module.exports = {
       const getImdb = async () =>
         mediaType === 'tv'
           ? dataSources.tmdbAPI
-              .movieInformation({ tmdbId })
-              .then(({ imdb_id }) => imdb_id)
+              .tvInformation({ tmdbId })
+              .then(({ external_ids: {imdb_id} }) => imdb_id)
               .then((imdb_id) => imdb_id.replace('tt', ''))
-          : dataSources.tmdbAPI.movieInformation({ tmdbId }).then((imdb_id) => imdb_id.replace('tt', ''));
+          : dataSources.tmdbAPI.movieInformation({ tmdbId }).then(({imdb_id}) => imdb_id.replace('tt', ''));
 
       const imdbId = await getImdb();
       const entries = await dataSources.openSubtitleAPI.search({ imdbId, language: iso639Map[language] });
