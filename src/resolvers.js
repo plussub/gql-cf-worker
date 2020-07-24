@@ -13,14 +13,14 @@ module.exports = {
         entries
       };
     },
-    subtitleSearch: async (_source, { tmdbId, language, mediaType }, { dataSources }) => {
+    subtitleSearch: async (_source, { tmdb_id, language, media_type }, { dataSources }) => {
       const getImdb = async () =>
-        mediaType === 'tv'
+        media_type === 'tv'
           ? dataSources.tmdbAPI
-              .tvInformation({ tmdbId })
+              .tvInformation({ tmdb_id })
               .then(({ external_ids: { imdb_id } }) => imdb_id)
               .then((imdb_id) => imdb_id.replace('tt', ''))
-          : dataSources.tmdbAPI.movieInformation({ tmdbId }).then(({ imdb_id }) => imdb_id.replace('tt', ''));
+          : dataSources.tmdbAPI.movieInformation({ tmdb_id }).then(({ imdb_id }) => imdb_id.replace('tt', ''));
 
       const imdbId = await getImdb();
       const entries = (await dataSources.openSubtitleAPI.search({ imdbId, language: iso639Map[language] }))

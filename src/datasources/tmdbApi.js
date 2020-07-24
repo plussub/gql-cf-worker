@@ -18,12 +18,12 @@ class TmdbAPI extends RESTDataSource {
     ).results;
   }
 
-  async movieInformation({ tmdbId }) {
-    return this.get(`movie/${tmdbId}`, { api_key: this.api_key });
+  async movieInformation({ tmdb_id }) {
+    return this.get(`movie/${tmdb_id}`, { api_key: this.api_key });
   }
 
-  async tvInformation({ tmdbId }) {
-    return this.get(`tv/${tmdbId}`, { append_to_response: 'external_ids', api_key: this.api_key });
+  async tvInformation({ tmdb_id }) {
+    return this.get(`tv/${tmdb_id}`, { append_to_response: 'external_ids', api_key: this.api_key });
   }
 }
 

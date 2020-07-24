@@ -159,6 +159,6 @@ module.exports = gql`
 
   type Query {
     videoSearch(query: String!): VideoSearchResult
-    subtitleSearch(tmdbId: String!, language: String!, mediaType: String!): SubtitleSearchResult
+    subtitleSearch(tmdb_id: String!, language: String!, media_type: String!): SubtitleSearchResult
   }
 `;
