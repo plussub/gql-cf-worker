@@ -6,7 +6,7 @@ module.exports = gql`
   }
 
   type VideoSearchResultEntry {
-    tmdbId: ID!
+    tmdb_id: ID!
     "e.g: /IfB9hy4JH1eH6HEfIgIGORXi5h.jpg"
     poster_path: String
     adult: Boolean
