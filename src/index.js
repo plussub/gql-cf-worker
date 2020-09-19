@@ -43,7 +43,7 @@ const handleRequest = async request => {
           ? new Response('', { status: 204 })
           : await apollo(request, graphQLOptions)
       if (graphQLOptions.cors) {
-        setCors(response, graphQLOptions.cors)
+        setCors(response)
       }
       return response
     } else if (
